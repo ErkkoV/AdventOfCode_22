@@ -3,7 +3,7 @@
 #include <cmath>
 using namespace std;
 
-ofstream MyFile("results.txt");
+
 
 int compare(int a, int b) {
     int result = (a > b) ? 1 : 0;
@@ -22,7 +22,11 @@ int main() {
       }
     }
 
-    
+    ofstream ResultsFile("results.txt");
+
+    ResultsFile << result << "\n";
+
+    ResultsFile.close();
 
     cout << result;
 
