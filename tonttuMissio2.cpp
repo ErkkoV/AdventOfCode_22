@@ -4,41 +4,94 @@
 #include <string>
 using namespace std;
 
-int main() {
-    string foodList;
-    
-    ifstream readFood("foodlist.txt");
-
-    int food = 0;
-    int finalFood1 = 0;
-    int finalFood2 = 0;
-    int finalFood3 = 0;
-    
-    while (getline (readFood, foodList)) {
-        if (foodList == "") {
-          food = 0;
-        } else {
-          food += stoi(foodList);
+int getScore(char player, char opponent) {
+        int score = 0;
+        if (player == 'X') {
+            score += 1;
+            if (opponent == 'A') {
+                    score += 3;
+            } else if (opponent == 'C') {
+                    score += 6;
+            }
+        } else if (player == 'Y') {
+            score += 2;
+            if (opponent == 'B') {
+                    score += 3;
+            } else if (opponent == 'A') {
+                    score += 6;
+            }
+        } else if (player == 'Z') {
+            score += 3;
+            if (opponent == 'C') {
+                score += 3;
+            } else if (opponent == 'B') {
+                score += 6;
+            }
         }
-        if (finalFood1 < food) {
-          finalFood3 = finalFood2;
-          finalFood2 = finalFood1;
-          finalFood1 = food;
-        } else if (finalFood2 < food) {
-          finalFood3 = finalFood2;
-          finalFood2 = food;
-        } else if (finalFood3 < food) {
-            finalFood3 = food;
+
+        return score;
+    }
+
+    int charScore(char opp) {
+        if (opp == 'A') {
+            return 1;
+        } else if (opp == 'B') {
+            return 2;
+        } else if (opp == 'C') {
+            return 3;
+        }
+    };
+
+    char oppositeWin(char choice) {
+        if (choice == 'A') {
+            return 'B';
+        } else if (choice == 'B') {
+            return 'C';
+        } else if (choice == 'C') {
+            return 'A';
         }
     }
 
-    int finalResult = finalFood1 + finalFood2 + finalFood3; 
+    char oppositeLose(char choice) {
+        if (choice == 'A') {
+            return 'C';
+        } else if (choice == 'B') {
+            return 'A';
+        } else if (choice == 'C') {
+            return 'B';
+        }
+    }
 
-    cout << "\n" << finalFood1;
-    cout << "\n" << finalFood2;
-    cout << "\n" << finalFood3;
+    int getScore2(char opponent, char condition) {
+        int score = 0;
 
-    cout << "\n" << finalResult;
+        if (condition == 'X') {
+            score += 0;
+            score += charScore(oppositeLose(opponent));
+        } else if (condition == 'Y') {
+            score += 3;
+            score += charScore(opponent);
+        } else if (condition == 'Z') {
+            score += 6;
+            score += charScore(oppositeWin(opponent));
+        }
+
+        return score;
+    }
+
+
+int main() {
+    string rpsList;
+    
+    ifstream readGuide("rpslist.txt");
+
+    int finalScore = 0;
+
+    while (getline (readGuide, rpsList)) {
+        finalScore += getScore2(rpsList[0], rpsList[2]);
+    }
+
+    cout << finalScore;
 
 
     return 0;
