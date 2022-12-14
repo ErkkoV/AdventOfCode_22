@@ -42,7 +42,7 @@ int main() {
             if (!noNewName) {
                 folderSpaces.push_back(0);
                 folderNames.push_back(folderName);
-                folderUnder.push_back({});
+                // folderUnder.push_back({});
                 folderTotal.push_back(0);
             }
         }
@@ -72,37 +72,20 @@ int main() {
         if (folder3[0] == '$') {
             if (folder3.substr(0, 5) == "$ cd " && folder3.substr(0, 7) != "$ cd ..") {
                 string folderName = folder3.substr(5);
-                for (int i = 0; i < folderNames.size(); i++) {
-                    if (folderNames[i] == currentFolder) {
-                        bool contains = false;
-                        for (int fold : folderUnder[i]) {
-                            if (fold == i) {
-                                contains = true;
-                            }
-                        }
-
-                        if (!contains) {
-                            folderUnder[i].push_back(i);
-                        }
-                    }
-                }
-
-                for (int i = 0; i < folderOrder.size(); i++) {
-                    cout << "\n" << folderOrder[i];
-                    for (int y = 0; y < folderUnder[folderOrder[i]].size(); y++) {
-                        cout << "," << folderUnder[folderOrder[i]][y];
-                    }
-                }
-
-
-                
-                
                 currentFolder = folderName;
                 for (int i = 0; i < folderNames.size(); i++) {
                     if (folderNames[i] == currentFolder) {
                         folderOrder.push_back(i);
                     }
                 }
+                for (auto each: folderOrder) {
+                    if (each <= folderOrder[folderOrder.size() -1]) {
+                        folderUnder[each].push_back(folderOrder[folderOrder.size() -1]);
+                    }
+                }
+
+
+                
             } else if (folder3 == "$ cd ..") {
                folderOrder.pop_back();
                currentFolder = folderNames[folderOrder[folderOrder.size() -1]];
@@ -125,7 +108,11 @@ int main() {
     for (int i = 0; i < folderNames.size(); i++) {
         cout << "\n" << folderNames[i];
         cout << "\n" << folderSpaces[i];
-        // cout << "\n" << folderUnder[i];
+        
+/*         cout << "\n";
+        for (auto each: folderUnder[i]) {
+            cout << each << ", ";
+        } */
         cout << "\n" << folderTotal[i];
     }
 
