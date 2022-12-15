@@ -12,19 +12,21 @@ int main() {
     ifstream readFolder1("treeinput.txt");
     
     int lineHeight = 0;
-    bool treeVisibility[99][99];
-    int treeHeight[99][99];
-    int bestScore = 0;
-
-    int inviTotal = 0;
+    int lineWidth; 
+    int startpoint[2];
+    int endpoint[2];
+    int elevations[132][132];
+    int distance[132][132];
+    int currentDistance = 0;
 
 
     while (getline (readFolder1, folder1)) {
         lineHeight += 1;
+        lineWidth = folder1.length();
         
-        for (int i = 0; i < 99; i++) {
-            treeVisibility[lineHeight -1][i] = false;
-            treeHeight[lineHeight -1][i] = int(folder1[i]) -48;
+        for (int i = 0; i < folder1.length(); i++) {
+            elevations[lineHeight -1][i] = int(folder1[i]);
+            distance[lineHeight -1][i] = 0;
         }
     }
 
@@ -32,7 +34,13 @@ int main() {
     for (int i = 0; i < 99; i++) {
         for (int y = 0; y < 99; y++) {
 
-            int height = treeHeight[i][y];
+            int elavation = elavations[i][y];
+            
+            if (distance[i][y] == currentDistance) {
+                if 
+            }
+
+            
             
             int viewRight = 0;
             int viewLeft = 0;
