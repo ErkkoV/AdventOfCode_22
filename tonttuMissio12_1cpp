@@ -26,99 +26,42 @@ int main() {
         
         for (int i = 0; i < folder1.length(); i++) {
             elevations[lineHeight -1][i] = int(folder1[i]);
-            distance[lineHeight -1][i] = 0;
+            distance[lineHeight -1][i] = -1;
         }
     }
 
-    
-    for (int i = 0; i < 99; i++) {
-        for (int y = 0; y < 99; y++) {
+    distance[startpoint[0]][startpoint[1]] = 0;
 
-            int elavation = elavations[i][y];
-            
-            if (distance[i][y] == currentDistance) {
-                if 
-            }
+    while (distance[endpoint[0]][endpoint[1]] < 1) {
+        for (int i = 0; i < 99; i++) {
+            for (int y = 0; y < 99; y++) {
+                if (distance[i][y] == currentDistance) {
+                    // rightcheck
+                    if (y !=131 && distance[i][y+1] < 1 && elevations[i][y+1] <= elevations[i][y] +1) {
+                        distance[i][y+1] = currentDistance + 1;
+                    }
+                    // leftcheck
+                    if (y !=0 && distance[i][y-1] < 1 && elevations[i][y-1] <= elevations[i][y] +1) {
+                        distance[i][y-1] = currentDistance + 1;
+                    }
+                    // downcheck
+                    if (i !=131 && distance[i+1][y] < 1 && elevations[i+1][y] <= elevations[i][y] +1) {
+                        distance[i+1][y] = currentDistance + 1;
+                    }
+                    // upcheck
+                    if (i !=0 && distance[i-1][y] < 1 && elevations[i-1][y] <= elevations[i][y] +1) {
+                        distance[i-1][y] = currentDistance + 1;
+                    }
 
-            
-            
-            int viewRight = 0;
-            int viewLeft = 0;
-            int viewDown = 0;
-            int viewUp = 0;
-            
-            
-            for (int z = 1; z < 99; z++) {
-                if (y == 98) {
-                    break;
-                } else if (y + z == 98) {
-                    viewRight +=1;
-                    break;
-                } else if(height > treeHeight[i][y+z]) {
-                    viewRight +=1;
-                } else {
-                    viewRight +=1;
-                    break;
+                    currentDistance += 1;
                 }
-            }
-            for (int z = 1; z < 99; z++) {
-                if (y == 0) {
-                    break;
-                } else if (y - z == 0) {
-                    viewLeft +=1;
-                    break;
-                } else if(height > treeHeight[i][y-z]) {
-                    viewLeft +=1;
-                } else {
-                    viewLeft +=1;
-                    break;
-                }
-            }
-            for (int z = 1; z < 99; z++) {
-                if (i == 98) {
-                    break;
-                } else if (i + z == 98) {
-                    viewDown +=1;
-                    break;
-                } else if(height > treeHeight[i+z][y]) {
-                    viewDown +=1;
-                } else {
-                    viewDown +=1;
-                    break;
-                }
-            }
-            for (int z = 1; z < 99; z++) {
-                if (y == 0) {
-                    break;
-                } else if (i - z == 0) {
-                    viewUp +=1;
-                    break;
-                } else if(height > treeHeight[i-z][y]) {
-                    viewUp +=1;
-                } else {
-                    viewUp +=1;
-                    break;
-                }
-            }
-
-            int best = viewUp * viewDown * viewLeft * viewRight;
-            if (best > bestScore) {
-                cout << "\n";
-                cout << "\n" << viewUp;
-                cout << "\n" << viewDown;
-                cout << "\n" << viewLeft;
-                cout << "\n" << viewRight;
-
-                bestScore = best;
             }
         }
     }
-
-
-    cout << "\n \n \n" << bestScore;
-
-   
     
-    return 0;
+
+    cout << "\n \n \n" << distance[endpoint[0]][endpoint[1]];
+
+   return 0;
 }
 
