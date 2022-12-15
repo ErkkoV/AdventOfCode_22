@@ -38,5 +38,6 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "vector": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
