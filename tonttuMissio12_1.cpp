@@ -62,8 +62,6 @@ int main() {
                     if (i !=0 && distance[i-1][y] < 1 && elevations[i-1][y] <= elevations[i][y] +1) {
                         distance[i-1][y] = currentDistance + 1;
                     }
-
-                    
                 }
             }
         }
