@@ -8,7 +8,7 @@ int main() {
 
     string container;
 
-    ifstream readContainers("containerlist.txt");
+    ifstream readContainers("input3.txt");
 
     string charList = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 

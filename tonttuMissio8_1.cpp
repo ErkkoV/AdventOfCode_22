@@ -9,7 +9,7 @@ int main() {
 
     string folder1;
     
-    ifstream readFolder1("treeinput.txt");
+    ifstream readFolder1("input8.txt");
     
     int lineHeight = 0;
     bool treeVisibility[99][99];
@@ -84,8 +84,6 @@ int main() {
 
     cout << "\n \n \n" << (99*99)-inviTotal;
 
-   
-    
     return 0;
 }
 

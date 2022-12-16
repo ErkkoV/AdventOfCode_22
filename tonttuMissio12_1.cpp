@@ -9,7 +9,7 @@ int main() {
 
     string folder1;
     
-    ifstream readFolder1("elevationinput.txt");
+    ifstream readFolder1("input12.txt");
     
     int lineHeight = 0;
     int lineWidth; 

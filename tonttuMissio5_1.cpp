@@ -10,7 +10,7 @@ int main() {
     
     string moves;
 
-    ifstream readMoves("moveinput.txt");
+    ifstream readMoves("input5.txt");
 
     int lineNumber = 0;
 
@@ -65,7 +65,6 @@ int main() {
            stack[movefrom -1] = stack[movefrom -1].substr(0, stack[movefrom -1].length() - moveamount);
 
         }
-
     }
 
     cout << "\n" << stack[0];
@@ -77,8 +76,6 @@ int main() {
     cout << "\n" << stack[6];
     cout << "\n" << stack[7];
     cout << "\n" << stack[8];
-
-    
 
     return 0;
 }

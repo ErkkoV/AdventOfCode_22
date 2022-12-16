@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     string foodList;
     
-    ifstream readFood("foodlist.txt");
+    ifstream readFood("input1.txt");
 
     int food = 0;
     int finalFood1 = 0;

@@ -8,7 +8,7 @@ int main() {
 
     string stream;
 
-    ifstream readStream("radioinput.txt");
+    ifstream readStream("input6.txt");
 
     string letters = "              "; 
     
@@ -34,20 +34,11 @@ int main() {
                     break;
                 }
             }
-
-
-            
         }
     }
 
     cout << "\n" << letterNumber;
     cout << "\n" << letters;
 
-
-
-
-    
-
-    
     return 0;
 }

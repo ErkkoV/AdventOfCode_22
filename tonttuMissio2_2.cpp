@@ -28,7 +28,6 @@ int getScore(char player, char opponent) {
                 score += 6;
             }
         }
-
         return score;
     }
 
@@ -83,7 +82,7 @@ int getScore(char player, char opponent) {
 int main() {
     string rpsList;
     
-    ifstream readGuide("rpslist.txt");
+    ifstream readGuide("input2.txt");
 
     int finalScore = 0;
 

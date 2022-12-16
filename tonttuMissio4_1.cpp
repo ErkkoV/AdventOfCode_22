@@ -8,7 +8,7 @@ int main() {
 
     string cleaners;
 
-    ifstream readCleaning("cleaninglist.txt");
+    ifstream readCleaning("input4.txt");
 
     int overlap;
 

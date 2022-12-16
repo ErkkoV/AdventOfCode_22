@@ -9,7 +9,7 @@ int main() {
 
     string folder1;
     
-    ifstream readFolder1("elevationinput.txt");
+    ifstream readFolder1("input12.txt");
     
     int lineHeight = 0;
     int lineWidth; 
@@ -45,7 +45,7 @@ int main() {
 
     int loop = 0;
 
-    while (loop < 1000) {
+    while (loop < 500) {
         for (int i = 0; i < 41; i++) {
             for (int y = 0; y < 132; y++) {
                 if (distance[i][y] == currentDistance) {
@@ -65,8 +65,6 @@ int main() {
                     if (i !=0 && distance[i-1][y] < 1 && elevations[i-1][y] +1 >= elevations[i][y]) {
                         distance[i-1][y] = currentDistance + 1;
                     }
-
-                    
                 }
             }
         }
@@ -84,9 +82,8 @@ int main() {
         }
     }
     
-
     cout << "\n \n \n" << shortestDistance;
 
-   return 0;
+    return 0;
 }
 
