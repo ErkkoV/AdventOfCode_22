@@ -34,12 +34,11 @@ int main() {
 
     int finalResult = finalFood1 + finalFood2 + finalFood3; 
 
+    // result for 1
     cout << "\n" << finalFood1;
-    cout << "\n" << finalFood2;
-    cout << "\n" << finalFood3;
 
+    // result for 2
     cout << "\n" << finalResult;
-
 
     return 0;
 }
