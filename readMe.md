@@ -1,4 +1,4 @@
-## C++ Practising with advenofcode 2022
+## C++ Practising with advenofcode 2022 (and changing to python when too hard)
 
 ### About the practising
 
