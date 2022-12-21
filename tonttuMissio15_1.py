@@ -10,8 +10,6 @@ sensors = []
 
 coverLine = []
 
-set()
-
 for line in tonttuFile:
     newline = line.split("=")
     locationX = int(newline[1].split(",")[0])
