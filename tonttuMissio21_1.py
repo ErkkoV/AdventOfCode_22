@@ -1,5 +1,3 @@
-import numpy
-
 tonttuFile = open("input21.txt", "r")
 
 monkeys = {}
