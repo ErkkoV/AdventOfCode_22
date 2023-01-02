@@ -54,7 +54,6 @@ cont = True
 iter = 0
 finalRes = False
 
-
 low = 0
 high = 1e30
 
