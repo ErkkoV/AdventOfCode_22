@@ -55,51 +55,22 @@ iter = 0
 finalRes = False
 
 
-def iterFind(it, resolution1, resolution2):
-    print(resolution2[0] - resolution2[1])
-
-    if resolution2[0] > resolution2[1] + 1e14:
-        return it + 1e12
-    elif resolution2[0] > resolution2[1] + 1e13:
-        return it + 1e11
-    elif resolution2[0] > resolution2[1] + 1e12:
-        return it + 1e10
-    elif resolution2[0] > resolution2[1] + 1e11:
-        return it + 1e9
-    elif resolution2[0] > resolution2[1] + 1e10:
-        return it + 1e8
-    elif resolution2[0] > resolution2[1] + 1e9:
-        return it + 1e7
-    elif resolution2[0] > resolution2[1] + 1e8:
-        return it + 1e6
-    elif resolution2[0] > resolution2[1] + 1e7:
-        return it + 1e5
-    elif resolution2[0] > resolution2[1] + 1e6:
-        return it + 1e4
-    elif resolution2[0] > resolution2[1] + 1e5:
-        return it + 1e3
-    elif resolution2[0] > resolution2[1]:
-        return it + 1
-    else:
-        return it - 1
-
+low = 0
+high = 1e30
 
 while cont:
-    res1 = findNums("root", -iter)
-    res2 = findNums("root", iter)
+    test = (low + high) // 2
 
-    if res1[0] == res1[1]:
+    res = findNums("root", test)
+
+    if res[0] == res[1]:
         cont = False
-        finalRes = -iter
+        finalRes = test
         break
-    if res2[0] == res2[1]:
-        cont = False
-        finalRes = iter
-        break
-
-    print(iter)
-
-    iter = iterFind(iter, res1, res2)
+    elif res[0] - res[1] > 0:
+        low = test
+    else:
+        high = test
 
 
 print(finalRes)
